@@ -5,9 +5,12 @@
   <!-- Colors -->
   <xacro:include filename="$(find mini_pi_description)/xacro/materials/materials.xacro"/>
   
-  <!-- Shapes & Caster -->
+  <!-- Shapes & Caster,Sensor,Chassis -->
   <xacro:include filename="$(find mini_pi_description)/xacro/macros/shapes.xacro"/>
+  <xacro:include filename="$(find mini_pi_description)/xacro/macros/wheel.xacro"/>
   <xacro:include filename="$(find mini_pi_description)/xacro/macros/caster.xacro"/>
+  <xacro:include filename="$(find mini_pi_description)/xacro/macros/ultrasonic_sensor.xacro"/>
+  <xacro:include filename="$(find mini_pi_description)/xacro/macros/chassis.xacro"/>
 
   <!-- Robot Parts -->
   <xacro:include filename="$(find mini_pi_description)/xacro/parts/params.xacro"/>
@@ -81,6 +84,32 @@
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
+
+    <!-- CASTER JOINTS: state-only (passive) -->
+    <joint name="front_caster_yaw_joint">
+      <state_interface name="position"/>
+    </joint>
+
+    <joint name="front_caster_roll_joint">
+      <state_interface name="position"/>
+    </joint>
+    
+    <joint name="front_caster_pitch_joint">
+      <state_interface name="position"/>
+    </joint>
+    
+    <joint name="back_caster_yaw_joint">
+      <state_interface name="position"/>
+    </joint>
+    
+    <joint name="back_caster_roll_joint">
+      <state_interface name="position"/>
+    </joint>
+    
+    <joint name="back_caster_pitch_joint">
+      <state_interface name="position"/>
+    </joint>
+
   </ros2_control>
 
   <!-- ==== Gazebo plugin ==== -->

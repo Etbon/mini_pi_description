@@ -37,6 +37,7 @@
       <parent link="${parent_link}"/>
       <child link="${name}_yaw_link"/>
       <axis xyz="0 0 1"/>
+      <dynamics damping="0.8" friction="0.0"/>
     </joint>
 
     <!-- Caster Wheel Link (Roll) -->
@@ -72,6 +73,7 @@
       <parent link="${name}_yaw_link"/>
       <child link="${name}_roll_link"/>
       <axis xyz="1 0 0"/>
+      <dynamics damping="0.02" friction="0.0"/>
     </joint>
 
     <!-- Caster Wheel Link (Pitch) -->
@@ -107,6 +109,7 @@
       <parent link="${name}_roll_link"/>
       <child link="${name}_pitch_link"/>
       <axis xyz="0 1 0"/>
+      <dynamics damping="0.05" friction="0.0"/>
     </joint>
   </xacro:macro>
 

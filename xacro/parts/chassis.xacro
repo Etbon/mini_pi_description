@@ -3,12 +3,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_pi">
 
   <xacro:macro name="mini_pi_chassis" params="parent">
-    <xacro:square_link 
+    <xacro:chassis
       name="chassis"
       size_x="${base_size_x}"
       size_y="${base_size_y}"
       size_z="${base_size_z}"
-      material="Red"
       mass="${base_mass}"
       parent_link="${parent}"
       xyz="0 0 0"

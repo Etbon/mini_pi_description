@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_pi">
+
+  <!-- Path to the STL mesh -->
+  <xacro:property name="ultra_mesh" value="package://mini_pi_description/meshes/ultrasonic_sensor.dae"/>
+
+  <!-- ===== Macros for squared component ==== -->
+  <xacro:macro name="ultrasonic_sensor" params="name mass parent_link xyz rpy joint_type">
+    <!-- Squared link -->
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${ultra_mesh}" scale="1 1 1"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${ultra_mesh}" scale="1 1 1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="${mass}" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia 
+                ixx="1e-5" 
+                ixy="0.0" 
+                ixz="0.0"
+                iyy="1e-5" 
+                iyz="0.0"
+                izz="1e-5"/>
+      </inertial>
+    </link>
+    <!-- Squared joint -->    
+    <joint name="${name}_joint" type="${joint_type}">
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <parent link="${parent_link}"/>
+      <child link="${name}"/>
+      <xacro:if value="${joint_type != 'fixed'}">
+        <axis xyz="0 0 1"/>
+      </xacro:if>
+    </joint>
+  </xacro:macro>
+
+</robot>

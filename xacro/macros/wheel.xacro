@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_pi">
+
+  <!-- Path to the STL mesh -->
+  <xacro:property name="wheels_mesh" value="package://mini_pi_description/meshes/wheel.dae"/>
+
+  <!-- === Macro for Cylindrical Component ==== -->
+  <xacro:macro name="wheel" params="name radius length mass parent_link xyz rpy joint_type axis">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <geometry>
+          <mesh filename="${wheels_mesh}" scale="1 1 1"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <geometry>
+          <cylinder radius="${radius}" length="${length}"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>1.5</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e6</kp>
+              <kd>1.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <inertial>
+        <mass value="${mass}" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="${(1.0/12.0)*mass*(3.0*(radius*radius) + (length*length))}"
+                 ixy="0" 
+                 ixz="0" 
+                 iyy="${(1.0/2.0) *mass*(radius*radius)}"
+                 iyz="0"
+                 izz="${(1.0/12.0)*mass*(3.0*(radius*radius) + (length*length))}"/>
+      </inertial>
+    </link>
+    <!-- Cylinder joint -->
+    <joint name="${name}_joint" type="${joint_type}">
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <parent link="${parent_link}" />
+      <child link="${name}" />
+      <axis xyz="${axis}" />
+    </joint>
+  </xacro:macro>
+
+</robot>

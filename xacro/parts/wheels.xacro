@@ -3,11 +3,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_pi">
 
   <xacro:macro name="mini_pi_wheels" params="parent">
-    <xacro:cylinder_link 
+    <xacro:wheel 
       name="wheel_right"
       radius="${wheel_radius}"
       length="${wheel_width}"
-      material="Black"
       mass="${wheel_mass}"
       parent_link="${parent}"
       xyz="0 -0.0380 -0.0275"
@@ -15,11 +14,10 @@
       joint_type="continuous"
       axis="0 1 0"/>
 
-    <xacro:cylinder_link 
+    <xacro:wheel 
       name="wheel_left"
       radius="${wheel_radius}"
       length="${wheel_width}"
-      material="Black"
       mass="${wheel_mass}"
       parent_link="${parent}"
       xyz="0 0.0380 -0.0275"

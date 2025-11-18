@@ -27,16 +27,18 @@ def generate_launch_description():
       value_type=str
     )
   }
-  
-  # Publish TF transform  
-  robot_state_publisher = Node(
-    package="robot_state_publisher",
-    executable="robot_state_publisher",
-    parameters=[robot_description, 
-                {"use_sim_time": LaunchConfiguration("use_sim_time")}
-    ],
-    output="screen"
-  )
+
+  # === Only if launch isolated === 
+
+  #  # Publish TF transform  
+  #  robot_state_publisher = Node(
+  #    package="robot_state_publisher",
+  #    executable="robot_state_publisher",
+  #    parameters=[robot_description, 
+  #                {"use_sim_time": LaunchConfiguration("use_sim_time")}
+  #    ],
+  #    output="screen"
+  #  )
 
   # Launch RViz
   rviz = Node(
@@ -50,6 +52,6 @@ def generate_launch_description():
 
   return LaunchDescription([
     use_sim_time,
-    robot_state_publisher,
+    # robot_state_publisher,
     rviz
   ])

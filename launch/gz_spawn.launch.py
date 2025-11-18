@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, RegisterEventHandler
+from launch.actions import ExecuteProcess, RegisterEventHandler, AppendEnvironmentVariable
 from launch.substitutions import Command, FindExecutable
 from launch.event_handlers import OnProcessStart
 from launch_ros.actions import Node
@@ -17,6 +17,14 @@ def generate_launch_description():
   pkg_path   = get_package_share_directory(pkg_name)
   world_path = os.path.join(pkg_path, world_rel)
   xacro_path = os.path.join(pkg_path, xacro_rel)
+
+  # Gazebo meshes path 
+  gz_resource_path = os.path.dirname(pkg_path)
+
+  set_gz_resource = AppendEnvironmentVariable(
+      name='GZ_SIM_RESOURCE_PATH',
+      value=os.pathsep + gz_resource_path
+  )
 
   # robot_description from xacro
   xacro_cmd = Command([FindExecutable(name="xacro"), " ", xacro_path])
@@ -99,6 +107,7 @@ def generate_launch_description():
   )
 
   return LaunchDescription([
+    set_gz_resource,
     gz,
     gz_bridge,
     rsp,

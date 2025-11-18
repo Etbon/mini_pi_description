@@ -7,48 +7,32 @@
   <xacro:property name="ULTRA_LEFT"  value="0       0.0485  0.0300  0  0  1.5708" />
 
   <xacro:macro name="mini_pi_ultrasonic" params="parent">
-    <xacro:square_link 
+    <xacro:ultrasonic_sensor
     name="ultrasonic_sensor_1"
-    size_x="0.0135"
-    size_y="0.045"
-    size_z="0.0165"
-    material="Green"
     mass="0.001"
     parent_link="${parent}"
     xyz="0.0485 0 0.0300"
     rpy="0 0 0"
     joint_type="fixed"/>
 
-    <xacro:square_link 
+    <xacro:ultrasonic_sensor
     name="ultrasonic_sensor_2"
-    size_x="0.0135"
-    size_y="0.045"
-    size_z="0.0165"
-    material="Green"
     mass="0.001"
     parent_link="${parent}"
     xyz="0 -0.0485 0.0300"
     rpy="0 0 4.7123"
     joint_type="fixed"/>
     
-    <xacro:square_link 
+    <xacro:ultrasonic_sensor
     name="ultrasonic_sensor_3"
-    size_x="0.0135"
-    size_y="0.045"
-    size_z="0.0165"
-    material="Green"
     mass="0.001"
     parent_link="${parent}"
     xyz="-0.0485 0 0.0300"
     rpy="0 0 3.14159"
     joint_type="fixed"/>
     
-    <xacro:square_link 
+    <xacro:ultrasonic_sensor
     name="ultrasonic_sensor_4"
-    size_x="0.0135"
-    size_y="0.045"
-    size_z="0.0165"
-    material="Green"
     mass="0.001"
     parent_link="${parent}"
     xyz="0 0.0485 0.0300"

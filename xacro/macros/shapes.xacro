@@ -58,6 +58,20 @@
         <geometry>
           <cylinder radius="${radius}" length="${length}" />
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>1.5</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e6</kp>
+              <kd>1.0</kd>
+            </ode>
+          </contact>
+        </surface>
       </collision>
       <inertial>
         <mass value="${mass}" />
