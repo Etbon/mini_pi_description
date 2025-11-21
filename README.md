@@ -2,8 +2,9 @@
 
 > **Mini_Pi Robot – ROS 2 description & simulation package**
 <p align="center">
-  <img width="430" height="384" alt="mini2" src="https://github.com/user-attachments/assets/5651b9d2-dabb-448c-9ced-c5f2d27e4135" />
+  <img width="430" height="384" alt="mini3" src="https://github.com/user-attachments/assets/0c2ba581-3e7f-4b3a-86cf-d5c140c1518d" />
 </p>
+
 
 <ins>Description:</ins> 
 Mini_Pi is a small differential drive robot with ultrasonic sensors, modeled in URDF/Xacro and simulated in Gazebo for navigation and SLAM experiments.
