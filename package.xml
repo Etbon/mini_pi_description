@@ -3,9 +3,9 @@
 <package format="3">
   <name>mini_pi_description</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="martin@todo.todo">martin</maintainer>
-  <license>TODO: License declaration</license>
+  <description> Mini_Pi robot description package (URDF/Xacro + Gazebo integration) for simulation experiments. </description>
+  <maintainer email="martinetbon@gmail.com">Martin Etbon</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
