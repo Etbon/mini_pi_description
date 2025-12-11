@@ -1,8 +1,23 @@
 site_name: "Mini Pi Description"
-site_url: ""   # can leave empty for now
+site_url: "https://etbon.github.io/mini_pi_description/"
+
+repo_url: "https://github.com/Etbon/mini_pi_description"
+repo_name: "Etbon/mini_pi_description"
 
 theme:
   name: material
+  logo: assets/pi-box.svg
+  features:
+    - navigation.top        # tabs at the top
+    - navigation.tracking   # highlight section in sidebar as you scroll
+    - search.highlight      # highlight matches in search results
+    - content.code.copy     # small copy button on code blocks
 
 nav:
   - Home: index.md
+
+markdown_extensions:
+  - admonition              # nice note/warning blocks
+  - codehilite
+  - toc:
+      permalink: true
