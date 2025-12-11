@@ -13,5 +13,4 @@ venv/
 # MkDocs build output
 site/
 
-# GitHub actions
-.github
+
