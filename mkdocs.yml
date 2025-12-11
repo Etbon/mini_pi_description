@@ -1,0 +1,8 @@
+site_name: "Mini Pi Description"
+site_url: ""   # can leave empty for now
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
