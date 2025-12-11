@@ -11,17 +11,6 @@ Mini_Pi is a small differential drive robot with ultrasonic sensors, modeled in 
 This is a [GIAR](https://giar.ai/) research project
 
 ---
-## Table of Contents
-
-- [1. Project Overview](#1-project-overview)
-- [2. Features](#2-features)
-- [3. Requirements](#3-requirements)
-- [4. Build & Installation](#4-build--installation)
-- [5. Robot Description Details](#5-robot-description-details)
-- [6. Topics, Frames & Controllers](#6-topics-frames--controllers)
-- [7. Common Issues & Troubleshooting](#7-common-issues--troubleshooting)
-- [8. License](#8-license)
-- [9. Photos](#9-photos)
 
 ## 1. Project Overview
 
@@ -38,6 +27,7 @@ The package focuses on a clean, modular Xacro structure so it can be reused or e
 
 ---
 ## 2. Features
+
 - ✅ **Differential-drive mobile base**
   - Left/right wheel joints with configurable radius and separation.
 - ✅ **Ultrasonic range sensors**
@@ -139,7 +129,7 @@ High-level structure of the robot model:
 The description is written in **Xacro** to allow parameterization and reuse.
 
 
-### 6. Topics, Frames & Controllers
+## 6. Topics, Frames & Controllers
 
 - `/tf` / `/tf_static`  
     Standard transform topics for the robot’s TF tree.
@@ -153,11 +143,11 @@ The description is written in **Xacro** to allow parameterization and reuse.
 - `/odom`  
     Odometry (if provided by a controller or an external node).
 
-### 7. Common Issues & Troubleshooting
+## 7. Common Issues & Troubleshooting
 > [!WARNING]
 > Do not name the robot `<name_of_robot>_robot_description` because `robot_description` messes up the argument in `ros2_control` and it will fail—it's a Jazzy bug. To fix it, do not use that name. You can use `mini_pi_description` or `model` or whatever you like. 
 
-### 8. License
+## 8. License
 This project is licensed under the **Apache License 2.0**. 
 See the [LICENSE](./LICENSE) file for the full text.
 
