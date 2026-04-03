@@ -5,6 +5,9 @@ log/
 
 # VS CODE 
 .vscode/
+__pycache__/
+*.pyc
+.codex
 
 # MkDocs build output
 site/
