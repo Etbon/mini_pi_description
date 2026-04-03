@@ -37,4 +37,9 @@ install(DIRECTORY
 
 )
 
+install(PROGRAMS
+  scripts/controller_manager_probe.py
+  DESTINATION share/${PROJECT_NAME}/scripts
+)
+
 ament_package()

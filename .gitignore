@@ -3,10 +3,6 @@ build/
 install/
 log/
 
-# Python virtual envs
-.venv/
-venv/
-
 # VS CODE 
 .vscode/
 
