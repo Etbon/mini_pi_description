@@ -2,6 +2,9 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_pi">
 
+  <!-- Lidar optional -->
+  <xacro:arg name="lidar" default="false"/>
+
   <!-- Colors -->
   <xacro:include filename="$(find mini_pi_description)/xacro/materials/materials.xacro"/>
   
@@ -46,8 +49,10 @@
   <!-- Ultrasonic sensors 1,2,3,4 -->
   <xacro:mini_pi_ultrasonic parent="base_link"/>
 
-  <!-- Lidar senors -->
-  <xacro:mini_pi_lidar parent="base_link"/>
+  <!-- Lidar senors optional -->
+  <xacro:if value="$(arg lidar)">
+    <xacro:mini_pi_lidar parent="base_link"/>
+  </xacro:if>
 
   <!-- ==== Caster Wheels ==== -->
   <xacro:caster_wheel 

@@ -1,6 +1,6 @@
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, RegisterEventHandler, AppendEnvironmentVariable
-from launch.substitutions import Command, FindExecutable
+from launch.actions import ExecuteProcess, RegisterEventHandler, AppendEnvironmentVariable, DeclareLaunchArgument
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration
 from launch.event_handlers import OnProcessStart, OnProcessExit
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -13,6 +13,15 @@ def generate_launch_description():
   xacro_rel  = "xacro/mini_pi.xacro"
   entity_name = "mini_pi"
   x, y, z, yaw = "0.0", "0.0", "0.0", "0.0"
+
+  # Add optional lidar sensor  
+  lidar_arg = DeclareLaunchArgument(
+    "lidar",
+    default_value="false",
+    description="Enable lidar sensor in robot description"
+  )
+  # Read the value 
+  lidar = LaunchConfiguration("lidar")
 
   pkg_path   = get_package_share_directory(pkg_name)
   world_path = os.path.join(pkg_path, world_rel)
@@ -28,7 +37,14 @@ def generate_launch_description():
   )
 
   # robot_description from xacro
-  xacro_cmd = Command([FindExecutable(name="xacro"), " ", xacro_path])
+  xacro_cmd = Command([
+    FindExecutable(name="xacro"),
+    " ",
+    xacro_path,
+    " ",
+    "lidar:=",
+    lidar,
+  ])
   robot_description = ParameterValue(xacro_cmd, value_type=str)
 
   # Gazebo
@@ -57,7 +73,6 @@ def generate_launch_description():
     remappings=[('/world/empty/clock', '/clock')],
     output="screen",
   )
-
 
   # robot_state_publisher (wall time)
   rsp = Node(
@@ -139,7 +154,7 @@ def generate_launch_description():
       on_exit=[diff_drive_spawner],
     ),
   )
-
+  
   return LaunchDescription([
     set_gz_resource,
     gz,
