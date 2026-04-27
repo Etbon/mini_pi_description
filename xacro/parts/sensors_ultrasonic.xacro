@@ -41,8 +41,9 @@
 
     <!-- Lidar attached directly to base_link (parent) -->
     <gazebo reference="${parent}">
-      <sensor name="ultra_front" type="gpu_lidar">
+      <sensor name="ultrasonic_sensor_1" type="gpu_lidar">
         <pose>${ULTRA_FRONT}</pose>
+        <gz_frame_id>ultrasonic_sensor_1</gz_frame_id>
         <topic>/ultra_front/scan</topic>
         <always_on>true</always_on>
         <visualize>true</visualize>
@@ -77,8 +78,9 @@
     </gazebo>
     
     <gazebo reference="${parent}">
-      <sensor name="ultra_right" type="gpu_lidar">
+      <sensor name="ultrasonic_sensor_2" type="gpu_lidar">
         <pose>${ULTRA_RIGHT}</pose>
+        <gz_frame_id>ultrasonic_sensor_2</gz_frame_id>
         <topic>/ultra_right/scan</topic>
         <always_on>true</always_on>
         <visualize>true</visualize>
@@ -113,8 +115,9 @@
     </gazebo>
 
     <gazebo reference="${parent}">
-      <sensor name="ultra_back" type="gpu_lidar">
+      <sensor name="ultrasonic_sensor_3" type="gpu_lidar">
         <pose>${ULTRA_BACK}</pose>
+        <gz_frame_id>ultrasonic_sensor_3</gz_frame_id>
         <topic>/ultra_back/scan</topic>
         <always_on>true</always_on>
         <visualize>true</visualize>
@@ -149,8 +152,9 @@
     </gazebo>
 
     <gazebo reference="${parent}">
-      <sensor name="ultra_left" type="gpu_lidar">
+      <sensor name="ultrasonic_sensor_4" type="gpu_lidar">
         <pose>${ULTRA_LEFT}</pose>
+        <gz_frame_id>ultrasonic_sensor_4</gz_frame_id>
         <topic>/ultra_left/scan</topic>
         <always_on>true</always_on>
         <visualize>true</visualize>
